@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Livros</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <style>
+        
+        #carrinhoDeCompras:empty::before {
+            content: 'Nenhum item adicionado ao carrinho';
+            padding: 13px;
+            color: gray;
+            font-size: 14px;
+        }
+        #listaDeProdutos {
+            background: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Biblionline</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="Biblionline.html">Home</a>
+              </li>
+        
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Curiosidades
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Sobre</a></li>
+                  <li><a class="dropdown-item" href="#">Coleções</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Opções</a></li>
+                </ul>
+    
+            </ul>
+            <form class="d-flex" role="Pesquisar">
+              <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    
+    <main class="container">
+        <div class="card my-5">
+            <div class="card-header text-center">
+                Itens no carrinho
+            </div>
+            <ul id="carrinhoDeCompras" class="list-group list-group-flush"></ul>
+            <div class="card-footer text-end">
+                Total R$ <label id="totalDoCarrinho">0.00</label>
+            </div>
+        </div>
+    
+        <div id="listaDeProdutos" class="d-flex justify-content-around p-5">
+           
+            <div class="card" style="width: 18rem;">
+                <img src="81KY9mmrF-L.jpg" class="card-img-top" alt="Pai rico, Pai pobre" style="height: 250px; width: auto; margin: auto;">
+                <div class="card-body border-top">
+                    <h5 class="card-title">R$ 90</h5>
+                    <p class="card-text">Pai rico, Pai pobre</p>
+                    <a onclick="adicionarAoCarrinho(event)" class="btn btn-primary" data-nome-do-produto="Pai rico, Pai pobre" data-preco-do-produto="90">Adicionar ao carrinho</a>
+                </div>
+            </div>
+            
+            <div class="card" style="width: 18rem;">
+                <img src="919dh4AX2hL.jpg" class="card-img-top" alt="Diario de um banana" style="height: 250px; width: auto; margin: auto;">
+                <div class="card-body border-top">
+                    <h5 class="card-title">R$ 30</h5>
+                    <p class="card-text">Diario de um banana</p>
+                    <a onclick="adicionarAoCarrinho(event)" class="btn btn-primary" data-nome-do-produto="Diario de um banana" data-preco-do-produto="30">Adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="41TsvI70n9L._SX335_BO1,204,203,200_.jpg." class="card-img-top" alt="Do Mil ao Milhão. Sem Cortar o Cafezinho" style="height: 250px; width: auto; margin: auto;">
+                <div class="card-body border-top">
+                    <h5 class="card-title">R$ 15</h5>
+                    <p class="card-text">Do Mil ao Milhão. Sem Cortar o Cafezinho</p>
+                    <a onclick="adicionarAoCarrinho(event)" class="btn btn-primary" data-nome-do-produto="Do Mil ao Milhão. Sem Cortar o Cafezinho" data-preco-do-produto="15">Adicionar ao carrinho</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="41EYSJ8-zoL._SX339_BO1,204,203,200_.jpg" class="card-img-top" alt="Mentes brilhantes" style="height: 250px; width: auto; margin: auto;">
+                <div class="card-body border-top">
+                    <h5 class="card-title">R$ 20</h5>
+                    <p class="card-text">Mentes brilhantes</p>
+                    <a onclick="adicionarAoCarrinho(event)" class="btn btn-primary" data-nome-do-produto="Mentes brilhantes" data-preco-do-produto="20">Adicionar ao carrinho</a></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="tela2.js"></script>
+</body>
+</html>
